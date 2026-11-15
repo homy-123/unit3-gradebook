@@ -1,5 +1,19 @@
 """Core logic for Grade Book: store grades per student and compute results."""
 
+MIN_GRADE = 0
+MAX_GRADE = 100
+
+
+def validate_grade(grade):
+    """Return the grade as a float, or raise ValueError if it is not a number in 0-100."""
+    try:
+        value = float(grade)
+    except (TypeError, ValueError):
+        raise ValueError(f"Grade must be a number, got {grade!r}")
+    if not MIN_GRADE <= value <= MAX_GRADE:
+        raise ValueError(f"Grade must be between {MIN_GRADE} and {MAX_GRADE}, got {value}")
+    return value
+
 
 def add_grade(book, student, grade):
     """Add a grade for a student (creates the student if new)."""
