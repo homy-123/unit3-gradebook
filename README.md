@@ -1,4 +1,4 @@
-# Grade Book
+# Grade Book (CLI)
 
 A small command-line program that stores grades per student and shows each
 student's average and letter grade (A-F).
