@@ -9,9 +9,13 @@ def main():
         choice = input("Choose: ").strip()
         if choice == "1":
             student = input("Student name: ").strip()
-            grade = float(input("Grade: "))
-            add_grade(book, student, grade)
-            print("Saved.")
+            grade = input("Grade (0-100): ")
+            try:
+                add_grade(book, student, grade)
+            except ValueError as error:
+                print(f"Not saved: {error}")
+            else:
+                print("Saved.")
         elif choice == "2":
             student = input("Student name: ").strip()
             avg = average(book, student)

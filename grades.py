@@ -16,8 +16,12 @@ def validate_grade(grade):
 
 
 def add_grade(book, student, grade):
-    """Add a grade for a student (creates the student if new)."""
-    book.setdefault(student, []).append(grade)
+    """Validate and add a grade for a student (creates the student if new).
+
+    Raises ValueError for an invalid grade; the book is left unchanged.
+    """
+    value = validate_grade(grade)
+    book.setdefault(student, []).append(value)
 
 
 def average(book, student):
